@@ -7,11 +7,7 @@ export default function WelcomePage() {
       <header>
         <h1>Get Schwifty!</h1>
         <Link className = "links" to = {'./characters'}>Characters</Link>
-        <img
-          className="main-img"
-          src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-          alt="rick"
-        />
+      
       </header>
     </section>
   );

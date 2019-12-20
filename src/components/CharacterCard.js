@@ -11,8 +11,8 @@ const CardStyle = {
 
 const CharacterCard =props=> {
   return (
-    <Card style={{backgroundColor: '#f1f1f1'}, {CardStyle}}>
-      <div >
+    <Card style={{background: '#f1f1f1'}, {CardStyle}}>
+      <div className ="grid" >
       <div className="character-card">
         <h1>{props.name}</h1>
         <p>{props.species}</p>
