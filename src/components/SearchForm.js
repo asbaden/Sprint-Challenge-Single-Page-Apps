@@ -1,10 +1,32 @@
 import React, { useState } from "react";
 
-export default function SearchForm() {
- 
+function SearchForm(props) {
+  const [result, setResult] = useState();
+  const handleChanges = event => {
+    setResult(event.target.value);
+  };
+
+  const submitHandler = event => {
+    event.preventDefault();
+
+    const filter = props.character.filter(character => {
+      return character.name.indexOf(result);
+    });
+    props.searching(filter);
+  };
+
   return (
-    <section className="search-form">
-     // Add a search form here
+    <section>
+      <form onSubmit={submitHandler}>
+        <input
+          onChange={handleChanges}
+          type="text"
+          placeholder="search"
+          id="character"
+        />
+      </form>
     </section>
   );
 }
+
+export default SearchForm;
