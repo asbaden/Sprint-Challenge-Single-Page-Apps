@@ -10,10 +10,10 @@ export default function CharacterList(props) {
   const [characters, setCharacters] = useState([]);
 
  
-  const [dataIsFiltered, dataIsUpdated] = useState([]);
+ 
 
   const searching = allcharacters => {
-    dataIsUpdated(allcharacters)
+    setCharacters(allcharacters)
   }
 
  
@@ -24,7 +24,7 @@ export default function CharacterList(props) {
     axios.get('https://rickandmortyapi.com/api/character')
     .then(response => {
       setCharacters(response.data.results);  
-      dataIsUpdated(response.data.results);
+      
       console.log("this is response", response);
     })
     .catch(error => {
@@ -37,7 +37,7 @@ export default function CharacterList(props) {
       <Link className='Links' to={"/"}>Home</Link>
       <SearchForm searching={searching} character={characters}/>
 
-      {dataIsFiltered.map(character => (
+      {characters.map(character => (
         <CharacterCard 
           key={character.id}
           name={character.name}
